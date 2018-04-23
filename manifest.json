@@ -1,0 +1,25 @@
+{
+  "manifest_version": 2,
+
+  "name": "Beer Store Analytics",
+  "description": "This extension modifies thebeerstore.ca to display the price of each beer based on its alcohol content",
+  "version": "1.0",
+
+  "content_scripts": [
+    {
+      "js": ["myscript.js"],
+      "run_at": "document_end",
+      "matches": ["http://www.thebeerstore.ca/beers/*"]
+    }
+  ],
+
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  },
+
+  "permissions": [
+    "tabs",
+    "http://www.thebeerstore.ca/beers/*"
+  ]
+}
