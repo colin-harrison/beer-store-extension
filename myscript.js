@@ -14,6 +14,25 @@ for (var i = 0; i < parentNodes.length; i++) {
   parentNodes[i].insertBefore(newNode, storeAvailabilityHeader)
 }
 
+// Grab sizes and volumes using a regex
+var sizes = []
+var volumes = []
+var regex = /\d+/g;
+var sizeStrings = document.getElementsByClassName("size");
+for (var i = 0; i < sizeStrings.length; i++) {
+  do {
+    var sizeMatch = regex.exec(sizeStrings[i].innerText)
+    if (sizeMatch) {
+      sizes.push(sizeMatch[0])
+      var volMatch = regex.exec(sizeStrings[i].innerText)
+      volumes.push(volMatch[0])
+    }
+  } while (sizeMatch)
+}
+
+console.log(sizes)
+console.log(volumes)
+
 // Insert cells in the Price per Drink Column
 var oddRows = document.getElementsByClassName("odd");
 var evenRows = document.getElementsByClassName("even");
@@ -30,6 +49,5 @@ for (var i = 0; i < oddRows.length; i++) {
 /*
 * Need to grab:
 *   price
-*   volume
 *   ABV
 */
