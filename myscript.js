@@ -46,6 +46,18 @@ for (var i = 0; i < oddRows.length; i++) {
   }
 }
 
+// Grab ABV from page
+// if (str.indexOf('%') != -1) it's the one
+// var ABVregex = /\d+\.\d/g                                       // should allow for any beer that is > 9.9 % ABV
+var ABVregex = /\d+\.\d/g
+var possibleABV = document.getElementsByTagName('dd');
+for (var i = 0; i < possibleABV.length; i++) {
+  if (possibleABV[i].innerText.indexOf('%') != -1) {
+      var ABVmatch = regex.exec(possibleABV[i].innerText)
+      console.log(ABVmatch)
+  }
+}
+
 /*
 * Need to grab:
 *   price
